@@ -58,13 +58,12 @@ public class OdometerService extends Service {
             }
         };
 
-        locManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
+        locManager = (LocationManager) getSystemService (Context.LOCATION_SERVICE);
         if (ContextCompat.checkSelfPermission(this, PERMISSION_STRING)
                 == PackageManager.PERMISSION_GRANTED) {
             String provider = locManager.getBestProvider(new Criteria(), true);
             if (provider != null) {
                 locManager.requestLocationUpdates(provider, 1000, 1, listener);
-
             }
         }
     }
